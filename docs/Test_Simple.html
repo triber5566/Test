@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Website Pricing Proposal – Tailor Made</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      font-size: 11pt;
+      color: #1a1a2e;
+      background: #f4f6fb;
+    }
+
+    .page {
+      width: 210mm;
+      min-height: 297mm;
+      margin: 30px auto;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 32px rgba(0,0,0,0.10);
+      overflow: hidden;
+    }
+
+    /* ── Cover ── */
+    .cover {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 60%, #0f3460 100%);
+      color: #fff;
+      padding: 52px 48px 40px 48px;
+    }
+    .cover .badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.25);
+      color: #e0e0e0;
+      font-size: 8.5pt;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 4px 14px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+    }
+    .cover h1 { font-size: 26pt; font-weight: 700; line-height: 1.2; margin-bottom: 8px; }
+    .cover h1 span { color: #e94560; }
+    .cover .subtitle { font-size: 12pt; color: #a8b2c8; margin-bottom: 32px; }
+    .cover .accent-line { width: 60px; height: 4px; background: #e94560; border-radius: 2px; margin-bottom: 24px; }
+    .cover .meta-row { display: flex; gap: 32px; flex-wrap: wrap; margin-top: 8px; }
+    .cover .meta-item { font-size: 9.5pt; color: #c0c8d8; }
+    .cover .meta-item strong { color: #fff; display: block; font-size: 10pt; margin-bottom: 2px; }
+
+    /* ── Content ── */
+    .content { padding: 40px 48px 48px 48px; }
+
+    .intro {
+      background: #f0f4ff;
+      border-left: 4px solid #0f3460;
+      padding: 14px 18px;
+      border-radius: 0 6px 6px 0;
+      color: #2d3561;
+      font-size: 10.5pt;
+      line-height: 1.7;
+      margin-bottom: 32px;
+    }
+
+    /* ── Section Titles ── */
+    .section-title {
+      font-size: 14pt;
+      font-weight: 700;
+      color: #0f3460;
+      margin-top: 36px;
+      margin-bottom: 14px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid #e8eaf2;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .section-title .icon {
+      background: #0f3460;
+      color: #fff;
+      width: 26px; height: 26px;
+      border-radius: 6px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13pt;
+      flex-shrink: 0;
+    }
+
+    /* ── Bundle Cards ── */
+    .bundle-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 10px;
+    }
+    .bundle-card {
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid #dde3f8;
+    }
+    .bundle-card .bc-head {
+      padding: 18px 18px 14px 18px;
+      text-align: center;
+    }
+    .bundle-card.starter .bc-head  { background: #0f3460; }
+    .bundle-card.business .bc-head { background: #e94560; }
+    .bundle-card.enterprise .bc-head { background: #16213e; }
+    .bundle-card .bc-head .bc-name {
+      font-size: 11pt;
+      font-weight: 700;
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 6px;
+    }
+    .bundle-card .bc-head .bc-price {
+      font-size: 16pt;
+      font-weight: 800;
+      color: #fff;
+    }
+    .bundle-card .bc-head .bc-sub {
+      font-size: 8.5pt;
+      color: rgba(255,255,255,0.7);
+      margin-top: 4px;
+    }
+    .bundle-card .bc-body {
+      padding: 16px 18px;
+      background: #fff;
+    }
+    .bundle-card .bc-body ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .bundle-card .bc-body ul li {
+      font-size: 9.5pt;
+      color: #2d3561;
+      padding: 5px 0;
+      border-bottom: 1px solid #f0f2fa;
+      display: flex;
+      align-items: flex-start;
+      gap: 7px;
+    }
+    .bundle-card .bc-body ul li:last-child { border-bottom: none; }
+    .bundle-card .bc-body ul li .chk { color: #28a745; font-size: 10pt; flex-shrink: 0; margin-top: 1px; }
+    .bundle-card .bc-body .bc-who {
+      margin-top: 14px;
+      font-size: 9pt;
+      color: #888;
+      font-style: italic;
+      border-top: 1px dashed #e0e3f0;
+      padding-top: 10px;
+    }
+
+    /* ── Add-Ons Table ── */
+    .addons-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 10pt;
+      margin-bottom: 6px;
+    }
+    .addons-table thead tr { background: #0f3460; color: #fff; }
+    .addons-table thead th { padding: 10px 14px; text-align: left; font-weight: 600; }
+    .addons-table thead th:last-child { text-align: right; }
+    .addons-table tbody tr:nth-child(even) { background: #f6f8ff; }
+    .addons-table tbody td {
+      padding: 9px 14px;
+      border-bottom: 1px solid #e8eaf2;
+      color: #2d3561;
+    }
+    .addons-table tbody td:last-child {
+      text-align: right;
+      font-weight: 600;
+      color: #0f3460;
+      white-space: nowrap;
+    }
+    .addons-table .cat-row td {
+      background: #f0f4ff;
+      font-weight: 700;
+      color: #0f3460;
+      font-size: 9.5pt;
+      padding: 7px 14px;
+      text-align: left !important;
+    }
+
+    /* ── Retainer ── */
+    .retainer-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 4px;
+    }
+    .retainer-card {
+      background: #f6f8ff;
+      border: 1px solid #dde3f8;
+      border-radius: 8px;
+      padding: 14px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .retainer-card .rc-label { font-size: 10pt; color: #2d3561; font-weight: 600; }
+    .retainer-card .rc-price { font-size: 11pt; font-weight: 800; color: #0f3460; white-space: nowrap; }
+
+    /* ── Notes ── */
+    .notes-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .notes-list li {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      font-size: 9.5pt;
+      color: #444;
+      line-height: 1.6;
+      padding: 8px 0;
+      border-bottom: 1px solid #f0f2fa;
+    }
+    .notes-list li:last-child { border-bottom: none; }
+    .notes-list li .ni { font-size: 14pt; flex-shrink: 0; line-height: 1.2; }
+
+    /* ── Footer ── */
+    .doc-footer {
+      background: #1a1a2e;
+      color: #8892a4;
+      text-align: center;
+      padding: 20px 48px;
+      font-size: 9pt;
+      line-height: 1.7;
+    }
+    .doc-footer strong { color: #c0c8d8; }
+
+    /* ── Print ── */
+    * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+    @media print {
+      @page { margin: 0; }
+      body { background: #fff; }
+      .page { margin: 0; border-radius: 0; box-shadow: none; width: 100%; }
+      .print-btn-wrap { display: none; }
+      .bundle-grid { page-break-inside: avoid; }
+      .addons-table { page-break-inside: avoid; }
+    }
+
+    /* ── Print Button ── */
+    .print-btn-wrap { text-align: center; padding: 18px 0 8px 0; }
+    .print-btn {
+      background: #0f3460; color: #fff; border: none;
+      padding: 11px 32px; border-radius: 6px; font-size: 11pt;
+      cursor: pointer; font-weight: 600; letter-spacing: 0.5px; transition: background 0.2s;
+    }
+    .print-btn:hover { background: #e94560; }
+  </style>
+</head>
+<body>
+
+<div class="print-btn-wrap">
+  <button class="print-btn" onclick="window.print()">🖨️ Save / Print as PDF</button>
+  <p style="margin-top:10px;font-size:9pt;color:#888;">
+    ⚠️ In the print dialog, make sure <strong>"Background graphics"</strong> is <strong>checked</strong>.
+  </p>
+</div>
+
+<div class="page">
+
+  <!-- COVER -->
+  <div class="cover">
+    <div class="badge">Confidential · Commercial Proposal</div>
+    <h1>Website Design &amp;<br><span>Development Pricing</span></h1>
+    <p class="subtitle">Simplified Pricing Guide &mdash; Malaysia Market</p>
+    <div class="accent-line"></div>
+    <div class="meta-row">
+      <div class="meta-item"><strong>Prepared by</strong>Tailor Made</div>
+      <div class="meta-item"><strong>Market</strong>Malaysia (MYR)</div>
+      <div class="meta-item"><strong>Date</strong>March 16, 2026</div>
+      <div class="meta-item"><strong>Version</strong>1.1</div>
+    </div>
+  </div>
+
+  <div class="content">
+
+    <div class="intro">
+      We price by <strong>what your website does</strong>, not by how many pages it has. Choose a bundle below as your
+      starting point, then add only the features you need. All prices are in <strong>Malaysian Ringgit (MYR)</strong>
+      and are indicative — a final quote is confirmed after a free scoping call.
+    </div>
+
+    <!-- 1. BUNDLES -->
+    <div class="section-title">
+      <span class="icon">①</span> Choose Your Starting Bundle
+    </div>
+    <p style="font-size:9.5pt;color:#666;margin-bottom:16px;">
+      Each bundle is a ready-to-go package. Pick the one closest to your needs, then add extras from Section 2.
+    </p>
+
+    <div class="bundle-grid">
+
+      <!-- Starter -->
+      <div class="bundle-card starter">
+        <div class="bc-head">
+          <div class="bc-name">Starter</div>
+          <div class="bc-price">RM 4,000 – 6,000</div>
+          <div class="bc-sub">Best for small businesses &amp; profiles</div>
+        </div>
+        <div class="bc-body">
+          <ul>
+            <li><span class="chk">✓</span> Up to 5 page layouts (custom design)</li>
+            <li><span class="chk">✓</span> Mobile responsive</li>
+            <li><span class="chk">✓</span> Contact form</li>
+            <li><span class="chk">✓</span> Basic SEO setup</li>
+            <li><span class="chk">✓</span> Domain &amp; hosting advisory</li>
+            <li><span class="chk">✓</span> 2 revision rounds</li>
+            <li><span class="chk">✓</span> CMS (update content yourself)</li>
+          </ul>
+          <div class="bc-who">Ideal for: Freelancers, clinics, restaurants, service providers</div>
+        </div>
+      </div>
+
+      <!-- Business -->
+      <div class="bundle-card business">
+        <div class="bc-head">
+          <div class="bc-name">Business</div>
+          <div class="bc-price">RM 8,000 – 15,000</div>
+          <div class="bc-sub">Best for growing businesses</div>
+        </div>
+        <div class="bc-body">
+          <ul>
+            <li><span class="chk">✓</span> Everything in Starter</li>
+            <li><span class="chk">✓</span> E-commerce (product catalogue + cart + checkout)</li>
+            <li><span class="chk">✓</span> Payment gateway (iPay88, Billplz, or Stripe)</li>
+            <li><span class="chk">✓</span> User login &amp; member area</li>
+            <li><span class="chk">✓</span> Blog / news module</li>
+            <li><span class="chk">✓</span> WhatsApp or live chat integration</li>
+            <li><span class="chk">✓</span> Up to 10 page layouts</li>
+          </ul>
+          <div class="bc-who">Ideal for: Retail, F&amp;B, agencies, SMEs selling online</div>
+        </div>
+      </div>
+
+      <!-- Enterprise -->
+      <div class="bundle-card enterprise">
+        <div class="bc-head">
+          <div class="bc-name">Enterprise</div>
+          <div class="bc-price">RM 20,000 – 50,000+</div>
+          <div class="bc-sub">Custom platforms &amp; complex systems</div>
+        </div>
+        <div class="bc-body">
+          <ul>
+            <li><span class="chk">✓</span> Everything in Business</li>
+            <li><span class="chk">✓</span> Custom booking / appointment system</li>
+            <li><span class="chk">✓</span> Role-based user permissions</li>
+            <li><span class="chk">✓</span> Custom admin dashboard &amp; reports</li>
+            <li><span class="chk">✓</span> API / CRM / ERP integrations</li>
+            <li><span class="chk">✓</span> Multilingual support</li>
+            <li><span class="chk">✓</span> Dedicated project manager</li>
+          </ul>
+          <div class="bc-who">Ideal for: Corporates, marketplaces, membership platforms</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- 2. ADD-ONS -->
+    <div class="section-title" style="margin-top:32px;">
+      <span class="icon">②</span> Optional Add-Ons (Pick &amp; Choose)
+    </div>
+    <p style="font-size:9.5pt;color:#666;margin-bottom:12px;">
+      Add any of the following to your chosen bundle. Each is individually scoped — prices shown are starting estimates.
+    </p>
+
+    <table class="addons-table">
+      <thead>
+        <tr><th>Feature</th><th style="text-align:right;">Starting from (MYR)</th></tr>
+      </thead>
+      <tbody>
+        <tr class="cat-row"><td colspan="2">🛒 E-Commerce</td></tr>
+        <tr><td>Inventory management</td><td>RM 1,000 – 1,500</td></tr>
+        <tr><td>Promo codes &amp; discount system</td><td>RM 400 – 800</td></tr>
+        <tr><td>Product variations (size, colour, SKU)</td><td>RM 400</td></tr>
+
+        <tr class="cat-row"><td colspan="2">📅 Booking &amp; Scheduling</td></tr>
+        <tr><td>Appointment booking system</td><td>RM 1,000 – 2,500</td></tr>
+        <tr><td>Google Calendar sync</td><td>RM 500 – 1,000</td></tr>
+        <tr><td>Automated email / SMS reminders</td><td>RM 400 – 800</td></tr>
+
+        <tr class="cat-row"><td colspan="2">👤 User Accounts</td></tr>
+        <tr><td>Social login (Google, Facebook)</td><td>RM 300 – 600</td></tr>
+        <tr><td>Role-based access control</td><td>RM 800 – 1,500</td></tr>
+
+        <tr class="cat-row"><td colspan="2">📊 Data &amp; Reports</td></tr>
+        <tr><td>Custom admin dashboard</td><td>RM 1,000 – 2,500</td></tr>
+        <tr><td>Analytics &amp; reporting display</td><td>RM 800 – 1,500</td></tr>
+        <tr><td>Data export (CSV / PDF)</td><td>RM 400 – 800</td></tr>
+
+        <tr class="cat-row"><td colspan="2">🔗 Integrations</td></tr>
+        <tr><td>CRM integration (HubSpot, Zoho, etc.)</td><td>RM 800 – 1,500</td></tr>
+        <tr><td>Custom API integration (per endpoint)</td><td>RM 500 – 1,500</td></tr>
+        <tr><td>Email newsletter (Mailchimp, etc.)</td><td>RM 200 – 500</td></tr>
+
+        <tr class="cat-row"><td colspan="2">🌐 Content</td></tr>
+        <tr><td>Multilingual support (setup only)</td><td>RM 600 – 1,200</td></tr>
+        <tr><td>Photo gallery / portfolio</td><td>RM 300 – 600</td></tr>
+        <tr><td>Video integration</td><td>RM 200 – 500</td></tr>
+      </tbody>
+    </table>
+
+    <!-- 3. RETAINER -->
+    <div class="section-title">
+      <span class="icon">③</span> Monthly Maintenance (Optional)
+    </div>
+    <p style="font-size:9.5pt;color:#666;margin-bottom:14px;">
+      Keep your site secure, updated, and running smoothly. All plans include minor bug fixes at no extra charge.
+    </p>
+    <div class="retainer-grid">
+      <div class="retainer-card">
+        <div class="rc-label">🛡️ Security &amp; Software Updates</div>
+        <div class="rc-price">RM 150 – 400/mo</div>
+      </div>
+      <div class="retainer-card">
+        <div class="rc-label">📄 Content Updates (up to 5/mo)</div>
+        <div class="rc-price">RM 200 – 500/mo</div>
+      </div>
+      <div class="retainer-card">
+        <div class="rc-label">📈 Performance &amp; Uptime Monitoring</div>
+        <div class="rc-price">RM 100 – 300/mo</div>
+      </div>
+      <div class="retainer-card">
+        <div class="rc-label">🐛 Minor Bug Fixes</div>
+        <div class="rc-price">Included</div>
+      </div>
+    </div>
+    <p style="font-size:9pt;color:#aaa;margin-top:10px;font-style:italic;">
+      * Minimum 3-month commitment recommended. Billed monthly.
+    </p>
+
+    <!-- 4. NOTES -->
+    <div class="section-title">
+      <span class="icon">④</span> Good to Know
+    </div>
+    <ul class="notes-list">
+      <li>
+        <span class="ni">💬</span>
+        <div><strong>Free scoping call first.</strong> All prices above are estimates. We'll confirm the final quote after a short discovery session where we understand exactly what you need.</div>
+      </li>
+      <li>
+        <span class="ni">💳</span>
+        <div><strong>Third-party costs are separate.</strong> Domain, hosting, SMS gateway, and payment gateway fees are billed directly to you by those providers — not included in our quotes.</div>
+      </li>
+      <li>
+        <span class="ni">🔄</span>
+        <div><strong>2 revision rounds included.</strong> Each round = one batch of feedback on the current design. Additional rounds are RM 200 each.</div>
+      </li>
+      <li>
+        <span class="ni">📋</span>
+        <div><strong>Content is your responsibility.</strong> We build the system; you provide the text, images, and videos. Need a copywriter? Ask us — we can quote that separately.</div>
+      </li>
+      <li>
+        <span class="ni">🔧</span>
+        <div><strong>Complex features cost more.</strong> Features involving custom business logic, real-time data, or heavy backend work are multiplied by 1.5× – 3× the base price — confirmed during scoping.</div>
+      </li>
+    </ul>
+
+    <!-- Disclaimer -->
+    <p style="font-size:9pt;color:#aaa;margin-top:28px;line-height:1.7;border-top:1px solid #e8eaf2;padding-top:16px;">
+      <strong>Disclaimer:</strong> All prices are indicative estimates as of March 2026. Final quotations are issued after a formal scoping session.
+      Prices may vary based on complexity, technology stack, and timeline. All amounts are in MYR and exclusive of applicable taxes.
+    </p>
+
+  </div><!-- /content -->
+
+  <!-- FOOTER -->
+  <div class="doc-footer">
+    <strong>Website Pricing Proposal</strong> &nbsp;·&nbsp; Tailor Made &nbsp;·&nbsp; Malaysia Market &nbsp;·&nbsp; March 2026<br>
+    This document is confidential and intended solely for the named recipient. All pricing is indicative and subject to formal scoping.
+  </div>
+
+</div><!-- /page -->
+
+</body>
+</html>

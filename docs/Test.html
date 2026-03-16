@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Website Design Pricing Proposal</title>
+  <style>
+    /* ── Reset & Base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      font-size: 11pt;
+      color: #1a1a2e;
+      background: #f4f6fb;
+    }
+
+    /* ── Page Wrapper ── */
+    .page {
+      width: 210mm;
+      min-height: 297mm;
+      margin: 30px auto;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 32px rgba(0,0,0,0.10);
+      overflow: hidden;
+    }
+
+    /* ── Cover Header ── */
+    .cover {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 60%, #0f3460 100%);
+      color: #fff;
+      padding: 52px 48px 40px 48px;
+      position: relative;
+    }
+    .cover .badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.25);
+      color: #e0e0e0;
+      font-size: 8.5pt;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 4px 14px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+    }
+    .cover h1 {
+      font-size: 26pt;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 8px;
+      letter-spacing: -0.5px;
+    }
+    .cover h1 span { color: #e94560; }
+    .cover .subtitle {
+      font-size: 12pt;
+      color: #a8b2c8;
+      margin-bottom: 32px;
+    }
+    .cover .meta-row {
+      display: flex;
+      gap: 32px;
+      flex-wrap: wrap;
+      margin-top: 8px;
+    }
+    .cover .meta-item { font-size: 9.5pt; color: #c0c8d8; }
+    .cover .meta-item strong { color: #fff; display: block; font-size: 10pt; margin-bottom: 2px; }
+
+    .cover .accent-line {
+      width: 60px; height: 4px;
+      background: #e94560;
+      border-radius: 2px;
+      margin-bottom: 24px;
+    }
+
+    /* ── Body Content ── */
+    .content { padding: 40px 48px 48px 48px; }
+
+    /* ── Section Titles ── */
+    .section-title {
+      font-size: 14pt;
+      font-weight: 700;
+      color: #0f3460;
+      margin-top: 36px;
+      margin-bottom: 14px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid #e8eaf2;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .section-title.page-start {
+      page-break-before: always;
+      break-before: page;
+      margin-top: 0;
+    }
+    .section-title .icon {
+      background: #0f3460;
+      color: #fff;
+      width: 26px; height: 26px;
+      border-radius: 6px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13pt;
+      flex-shrink: 0;
+    }
+
+    /* ── Intro Text ── */
+    .intro {
+      background: #f0f4ff;
+      border-left: 4px solid #0f3460;
+      padding: 14px 18px;
+      border-radius: 0 6px 6px 0;
+      color: #2d3561;
+      font-size: 10.5pt;
+      line-height: 1.7;
+      margin-bottom: 8px;
+    }
+
+    /* ── Tables ── */
+    .pricing-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 6px;
+      font-size: 10pt;
+    }
+    .pricing-table thead tr {
+      background: #0f3460;
+      color: #fff;
+    }
+    .pricing-table thead th {
+      padding: 10px 14px;
+      text-align: left;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+    }
+    .pricing-table thead th:last-child { text-align: right; }
+    .pricing-table tbody tr:nth-child(even) { background: #f6f8ff; }
+    .pricing-table tbody tr:hover { background: #eef1fb; }
+    .pricing-table tbody td {
+      padding: 9px 14px;
+      border-bottom: 1px solid #e8eaf2;
+      color: #2d3561;
+    }
+    .pricing-table tbody td:last-child {
+      text-align: right;
+      font-weight: 600;
+      color: #0f3460;
+      white-space: nowrap;
+    }
+    .pricing-table tfoot tr { background: #e94560; }
+    .pricing-table tfoot td {
+      padding: 10px 14px;
+      color: #fff;
+      font-weight: 700;
+      font-size: 10.5pt;
+    }
+    .pricing-table tfoot td:last-child { text-align: right; }
+
+    /* ── Sub-section labels ── */
+    .sub-label {
+      font-size: 10pt;
+      font-weight: 700;
+      color: #e94560;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-top: 22px;
+      margin-bottom: 8px;
+    }
+    .sub-label.page-start {
+      page-break-before: always;
+      break-before: page;
+      margin-top: 0;
+    }
+
+    /* ── Complexity Table ── */
+    .complexity-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 10pt;
+      margin-bottom: 6px;
+    }
+    .complexity-table thead tr { background: #16213e; color: #fff; }
+    .complexity-table thead th { padding: 9px 14px; text-align: left; font-weight: 600; }
+    .complexity-table tbody tr:nth-child(even) { background: #f6f8ff; }
+    .complexity-table tbody td {
+      padding: 8px 14px;
+      border-bottom: 1px solid #e8eaf2;
+      color: #2d3561;
+    }
+    .badge-pill {
+      display: inline-block;
+      padding: 2px 10px;
+      border-radius: 12px;
+      font-size: 9pt;
+      font-weight: 700;
+    }
+    .pill-green  { background: #d4edda; color: #155724; }
+    .pill-yellow { background: #fff3cd; color: #856404; }
+    .pill-red    { background: #f8d7da; color: #721c24; }
+
+    /* ── Tips Box ── */
+    .tips-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 4px;
+    }
+    .tip-card {
+      background: #f6f8ff;
+      border: 1px solid #dde3f8;
+      border-radius: 8px;
+      padding: 14px 16px;
+    }
+    .tip-card .tip-num {
+      font-size: 18pt;
+      font-weight: 800;
+      color: #e8eaf2;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .tip-card .tip-title {
+      font-size: 10pt;
+      font-weight: 700;
+      color: #0f3460;
+      margin-bottom: 4px;
+    }
+    .tip-card .tip-body {
+      font-size: 9.5pt;
+      color: #555e7a;
+      line-height: 1.6;
+    }
+
+    /* ── Market Context Box ── */
+    .market-box {
+      display: flex;
+      gap: 14px;
+      margin-top: 20px;
+    }
+    .market-card {
+      flex: 1;
+      border-radius: 8px;
+      padding: 16px 18px;
+      text-align: center;
+    }
+    .market-card.sme  { background: #fff3cd; border: 1px solid #ffc107; }
+    .market-card.corp { background: #d4edda; border: 1px solid #28a745; }
+    .market-card.ent  { background: #d1ecf1; border: 1px solid #17a2b8; }
+    .market-card .mc-label { font-size: 9pt; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: #555; margin-bottom: 6px; }
+    .market-card .mc-value { font-size: 14pt; font-weight: 800; color: #1a1a2e; }
+
+    /* ── Retainer Table ── */
+    .retainer-note {
+      font-size: 9.5pt;
+      color: #888;
+      margin-top: 6px;
+      font-style: italic;
+    }
+
+    /* ── Disclaimer / Footer ── */
+    .doc-footer {
+      background: #1a1a2e;
+      color: #8892a4;
+      text-align: center;
+      padding: 20px 48px;
+      font-size: 9pt;
+      line-height: 1.7;
+    }
+    .doc-footer strong { color: #c0c8d8; }
+
+    /* ── Force background printing ── */
+    * {
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+
+    /* ── Print Styles ── */
+    @media print {
+      @page {
+        margin: 0;        /* removes browser-injected header/footer (URL, page number, date) */
+      }
+      body { background: #fff; }
+      .page {
+        margin: 0;
+        border-radius: 0;
+        box-shadow: none;
+        width: 100%;
+      }
+      .cover {
+        background: #0f3460 !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+      .section-title { page-break-after: avoid; }
+      .pricing-table, .complexity-table { page-break-inside: avoid; }
+      .tips-grid { page-break-inside: avoid; }
+      .pricing-table thead tr,
+      .complexity-table thead tr { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+      .pricing-table tfoot tr { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+      .market-card.sme, .market-card.corp, .market-card.ent { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+      .tip-card { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+      .badge-pill { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+      .intro { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+      .doc-footer { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+    }
+
+    /* ── Print Button ── */
+    .print-btn-wrap {
+      text-align: center;
+      padding: 18px 0 8px 0;
+    }
+    .print-btn {
+      background: #0f3460;
+      color: #fff;
+      border: none;
+      padding: 11px 32px;
+      border-radius: 6px;
+      font-size: 11pt;
+      cursor: pointer;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      transition: background 0.2s;
+    }
+    .print-btn:hover { background: #e94560; }
+    @media print { .print-btn-wrap { display: none; } }
+  </style>
+</head>
+<body>
+
+<div class="print-btn-wrap">
+  <button class="print-btn" onclick="window.print()">🖨️ Save / Print as PDF</button>
+  <p style="margin-top:10px;font-size:9pt;color:#888;">
+    ⚠️ In the print dialog, make sure <strong>"Background graphics"</strong> is <strong>checked</strong> to preserve colours and backgrounds.
+  </p>
+</div>
+
+<div class="page">
+
+  <!-- ══ COVER HEADER ══ -->
+  <div class="cover">
+    <div class="badge">Confidential · Commercial Proposal</div>
+    <h1>Website Design &amp;<br><span>Development Pricing</span></h1>
+    <p class="subtitle">Functionality-Based Pricing Model &mdash; Malaysia Market</p>
+    <div class="accent-line"></div>
+    <div class="meta-row">
+      <div class="meta-item"><strong>Prepared by</strong>Tailor Made</div>
+      <div class="meta-item"><strong>Market</strong>Malaysia (MYR)</div>
+      <div class="meta-item"><strong>Date</strong>March 16, 2026</div>
+      <div class="meta-item"><strong>Version</strong>1.1</div>
+    </div>
+  </div>
+
+  <!-- ══ CONTENT ══ -->
+  <div class="content">
+
+    <!-- Intro -->
+    <div class="intro">
+      This proposal outlines a <strong>functionality-based pricing model</strong> for website design and development
+      services. Rather than pricing by the number of pages, this approach prices each discrete feature or module
+      independently — ensuring fair, transparent, and scalable costs regardless of how complex a single page becomes.
+      Clients select only the features they need, making budgeting predictable for both parties.
+    </div>
+
+    <!-- ══ 1. BASE PACKAGE ══ -->
+    <div class="section-title">
+      <span class="icon">①</span> Base Package (Foundation)
+    </div>
+    <p style="font-size:9.5pt;color:#666;margin-bottom:12px;">
+      Every project begins with a base package covering the essential setup required for any professional website.
+    </p>
+    <table class="pricing-table">
+      <thead>
+        <tr><th>Component</th><th style="text-align:right;">Price (MYR)</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            Domain &amp; Hosting Setup — Advisory, DNS configuration &amp; SSL setup
+            <span style="display:block;font-size:8.5pt;color:#888;margin-top:3px;">⚠️ Setup &amp; configuration fee only. Domain registration &amp; hosting subscription costs (RM 50–RM 5,000+/yr depending on plan) are third-party expenses billed separately to the client.</span>
+          </td>
+          <td>RM 300 – RM 500</td>
+        </tr>
+        <tr>
+          <td>
+            Custom UI/UX Design (wireframes + visual design)
+            <span style="display:block;font-size:8.5pt;color:#888;margin-top:3px;">🎨 Starting price covers up to 5 unique page layouts with 2 revision rounds. Price increases with the number of unique layouts, animation requirements, or brand identity work required. Final price confirmed during scoping.</span>
+          </td>
+          <td>RM 2,000 – RM 5,000+</td>
+        </tr>
+        <tr><td>Fully Responsive Layout (Desktop, Tablet, Mobile)</td><td>Included</td></tr>
+        <tr><td>CMS Integration (e.g. WordPress / headless CMS)</td><td>RM 500 – RM 1,000</td></tr>
+        <tr><td>Basic On-Page SEO Setup (meta tags, sitemap, robots.txt)</td><td>RM 500</td></tr>
+        <tr><td>Contact Form with Email Notification</td><td>RM 500</td></tr>
+        <tr><td>2 Rounds of Design Revisions</td><td>Included</td></tr>
+      </tbody>
+      <tfoot>
+        <tr><td>Estimated Base Total</td><td>RM 3,800 – RM 4,500 &amp; above</td></tr>
+      </tfoot>
+    </table>
+
+    <!-- ══ 2. FUNCTIONALITY ADD-ONS ══ -->
+    <div class="section-title">
+      <span class="icon">②</span> Functionality Add-Ons (Modular)
+    </div>
+    <p style="font-size:9.5pt;color:#666;margin-bottom:4px;">
+      Clients select only the modules they require. Each is independently scoped and priced.
+      Final prices may vary based on complexity (see Section 3).
+    </p>
+
+    <!-- E-Commerce -->
+    <div class="sub-label">🛒 E-Commerce</div>
+    <p style="font-size:8.5pt;color:#888;margin-bottom:8px;font-style:italic;">
+      💡 <strong>Platform note:</strong> Prices below reflect custom-built implementations. If the project is WordPress + WooCommerce based, many features are largely configuration work and may be priced lower. Final pricing depends on the agreed platform — this will be discussed during scoping.
+    </p>
+    <table class="pricing-table">
+      <thead><tr><th>Feature</th><th style="text-align:right;">Price (MYR)</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>
+            Product Catalogue (filterable)
+            <span style="display:block;font-size:8.5pt;color:#888;margin-top:3px;">🗂️ Base price covers standard category/tag filtering. Price increases with multi-attribute Ajax filtering, price range sliders, or custom faceted search — which will be scoped separately.</span>
+          </td>
+          <td>RM 1,500 – RM 3,000+</td>
+        </tr>
+        <tr><td>Shopping Cart &amp; Checkout Flow</td><td>RM 1,000 – RM 2,000</td></tr>
+        <tr><td>Payment Gateway Integration (iPay88, Billplz, Stripe, etc.)</td><td>RM 500 – RM 1,000</td></tr>
+        <tr>
+          <td>
+            Inventory Management Module
+            <span style="display:block;font-size:8.5pt;color:#888;margin-top:3px;">📦 Covers standard single-warehouse stock tracking, low-stock alerts &amp; order deduction. Advanced features are scoped separately.</span>
+          </td>
+          <td>RM 1,000 – RM 1,500</td>
+        </tr>
+        <tr><td>Promo Code / Discount System</td><td>RM 400 – RM 800</td></tr>
+        <tr>
+          <td>
+            Product Variations (size, colour, SKU, etc.)
+            <span style="display:block;font-size:8.5pt;color:#888;margin-top:3px;">🔧 Covers attribute setup, variation configuration &amp; per-variation pricing/images. Fee applies regardless of platform — configuration work is billable even on WooCommerce.</span>
+          </td>
+          <td>RM 400</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- User Accounts -->
+    <div class="sub-label">👤 User Accounts &amp; Authentication</div>
+    <table class="pricing-table">
+      <thead><tr><th>Feature</th><th style="text-align:right;">Price (MYR)</th></tr></thead>
+      <tbody>
+        <tr><td>User Registration &amp; Login (email/password)</td><td>RM 500 – RM 1,000</td></tr>
+        <tr>
+          <td>
+            Social Login (Google, Facebook, etc.)
+            <span style="display:block;font-size:8.5pt;color:#888;margin-top:3px;">🔑 Covers technical integration only. Client is responsible for creating and managing their own Google/Meta developer app credentials. Third-party app review processes (e.g. Meta's verification) are outside our control and may cause delays.</span>
+          </td>
+          <td>RM 300 – RM 600</td>
+        </tr>
+        <tr><td>User Dashboard / Profile Page</td><td>RM 600 – RM 1,200</td></tr>
+        <tr>
+          <td>
+            Role-Based Access Control (Admin, Member, Staff, etc.)
+            <span style="display:block;font-size:8.5pt;color:#888;margin-top:3px;">⚙️ Goes beyond WordPress's 5 default roles. Covers custom role creation, granular permission rules &amp; access restrictions — typically implemented via plugin (e.g. Members, User Role Editor) with custom configuration or code.</span>
+          </td>
+          <td>RM 800 – RM 1,500</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Booking -->
+    <div class="sub-label page-start">📅 Booking &amp; Scheduling</div>
+    <table class="pricing-table">
+      <thead><tr><th>Feature</th><th style="text-align:right;">Price (MYR)</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>
+            Appointment Booking System
+            <span style="display:block;font-size:8.5pt;color:#888;margin-top:3px;">📅 Base price covers single-staff, single-service time-slot booking with email confirmation. Multi-staff, multi-service, buffer times, or deposit payment flows are scoped separately and will increase the price.</span>
+          </td>
+          <td>RM 1,000 – RM 2,500</td>
+        </tr>
+        <tr><td>Calendar Integration (Google Calendar / iCal)</td><td>RM 500 – RM 1,000</td></tr>
+        <tr>
+          <td>
+            Automated Email / SMS Notifications
+            <span style="display:block;font-size:8.5pt;color:#888;margin-top:3px;">📨 Covers integration &amp; template setup. Email delivery is via SMTP (low/no cost). SMS requires a third-party gateway (e.g. Twilio, Nexmo, or local telco API) — SMS gateway fees &amp; per-message costs are billed separately to the client.</span>
+          </td>
+          <td>RM 400 – RM 800</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Content & CMS -->
+    <div class="sub-label">📝 Content &amp; CMS Features</div>
+    <p style="font-size:8.5pt;color:#888;margin-bottom:8px;font-style:italic;">
+      ✏️ <strong>Content note:</strong> Prices below cover module development &amp; setup only. <strong>Any content (text, images, videos, etc.) is not included.</strong> Clients are expected to provide their own content, or may engage our in-house copywriter — copywriting is quoted separately based on volume and language requirements.
+    </p>
+    <table class="pricing-table">
+      <thead><tr><th>Feature</th><th style="text-align:right;">Price (MYR)</th></tr></thead>
+      <tbody>
+        <tr><td>Blog / News Module</td><td>RM 400 – RM 800</td></tr>
+        <tr>
+          <td>
+            Multilingual Support (EN + BM + others)
+            <span style="display:block;font-size:8.5pt;color:#888;margin-top:3px;">🌐 Covers plugin setup &amp; language-switching configuration only. <strong>Translation of all content is not included</strong> — clients must supply translated text, or engage our in-house translator (quoted separately by word count &amp; language pair).</span>
+          </td>
+          <td>RM 600 – RM 1,200</td>
+        </tr>
+        <tr><td>Photo Gallery / Portfolio Module</td><td>RM 300 – RM 600</td></tr>
+        <tr><td>Video Integration (YouTube embed / self-hosted)</td><td>RM 200 – RM 500</td></tr>
+      </tbody>
+    </table>
+
+    <!-- Dashboard & Data -->
+    <div class="sub-label">📊 Dashboard &amp; Data Management</div>
+    <table class="pricing-table">
+      <thead><tr><th>Feature</th><th style="text-align:right;">Price (MYR)</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>
+            Custom Admin Dashboard
+            <span style="display:block;font-size:8.5pt;color:#888;margin-top:3px;">📋 Refers to a custom-built front-end panel (e.g. a branded internal portal or client-facing dashboard) — not the standard WordPress/WooCommerce admin area, which is provided by default at no extra cost.</span>
+          </td>
+          <td>RM 1,000 – RM 2,500</td>
+        </tr>
+        <tr>
+          <td>
+            Reports &amp; Analytics Display
+            <span style="display:block;font-size:8.5pt;color:#888;margin-top:3px;">📈 Covers custom or extended reporting beyond WooCommerce's built-in order/sales reports — e.g. custom charts, date-range filters, product performance views, or integration with Google Analytics data.</span>
+          </td>
+          <td>RM 800 – RM 1,500</td>
+        </tr>
+        <tr><td>Data Export (CSV / PDF)</td><td>RM 400 – RM 800</td></tr>
+        <tr><td>Live Chat Integration (e.g. Tawk.to, Crisp)</td><td>RM 150 – RM 300</td></tr>
+      </tbody>
+    </table>
+
+    <!-- Third-Party Integrations -->
+    <div class="sub-label page-start">🔗 Third-Party &amp; API Integrations</div>
+    <table class="pricing-table">
+      <thead><tr><th>Feature</th><th style="text-align:right;">Price (MYR)</th></tr></thead>
+      <tbody>
+        <tr><td>WhatsApp / Telegram Bot Integration</td><td>RM 500 – RM 1,200</td></tr>
+        <tr><td>CRM Integration (HubSpot, Zoho, etc.)</td><td>RM 800 – RM 1,500</td></tr>
+        <tr><td>Custom API Integration (per API endpoint)</td><td>RM 500 – RM 1,500</td></tr>
+        <tr><td>Email Newsletter Integration (Mailchimp, etc.)</td><td>RM 200 – RM 500</td></tr>
+      </tbody>
+    </table>
+
+    <!-- ══ 3. COMPLEXITY MULTIPLIERS ══ -->
+    <div class="section-title">
+      <span class="icon">③</span> Complexity Multipliers
+    </div>
+    <p style="font-size:9.5pt;color:#666;margin-bottom:12px;">
+      Feature prices above reflect standard (Simple) complexity. When a feature involves custom business logic,
+      heavy backend processing, or non-standard workflows, a multiplier is applied to the base feature price.
+    </p>
+    <table class="complexity-table">
+      <thead>
+        <tr>
+          <th>Level</th>
+          <th>Multiplier</th>
+          <th>Description</th>
+          <th>Example</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="badge-pill pill-green">Simple</span></td>
+          <td><strong>1×</strong></td>
+          <td>Standard implementation, minimal custom logic</td>
+          <td>Static contact form, image gallery</td>
+        </tr>
+        <tr>
+          <td><span class="badge-pill pill-yellow">Moderate</span></td>
+          <td><strong>1.5×</strong></td>
+          <td>Dynamic content, filtering, conditional logic</td>
+          <td>Product filter, basic booking rules</td>
+        </tr>
+        <tr>
+          <td><span class="badge-pill pill-red">Complex</span></td>
+          <td><strong>2× – 3×</strong></td>
+          <td>Custom workflows, real-time data, heavy backend</td>
+          <td>Multi-vendor marketplace, live inventory sync</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- ══ 4. ONGOING SERVICES ══ -->
+    <div class="section-title">
+      <span class="icon">④</span> Ongoing Maintenance &amp; Support (Monthly Retainer)
+    </div>
+    <table class="pricing-table">
+      <thead><tr><th>Service</th><th style="text-align:right;">Price (MYR / month)</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>
+            Security &amp; Software Updates
+            <span style="display:block;font-size:8.5pt;color:#888;margin-top:3px;">🛡️ Covers CMS core, theme &amp; plugin updates; SSL validity checks; basic security monitoring (malware scan, firewall review, brute-force login checks). Does not include incident recovery, major version migrations, or penetration testing — scoped separately.</span>
+          </td>
+          <td>RM 150 – RM 400</td>
+        </tr>
+        <tr>
+          <td>
+            Content Updates (up to 5 changes/month)
+            <span style="display:block;font-size:8.5pt;color:#888;margin-top:3px;">📄 Covers uploading &amp; publishing client-supplied content only (text, images, files). One "change" = one discrete update task (e.g. swap one image, update one text block, add one new post). Requests exceeding 5 changes/month are billed at the standard hourly rate. Content creation or copywriting is not included unless the client has engaged our in-house copywriter separately.</span>
+          </td>
+          <td>RM 200 – RM 500</td>
+        </tr>
+        <tr><td>Performance &amp; Uptime Monitoring</td><td>RM 100 – RM 300</td></tr>
+        <tr>          <td>
+            Bug Fixes (minor, covered under retainer)
+            <span style="display:block;font-size:8.5pt;color:#888;margin-top:3px;">🐛 "Minor" is defined as bugs caused by our own code or standard plugin conflicts, resolvable within 2 hours. Issues arising from client-side changes, third-party plugin updates, or hosting environment changes are scoped &amp; billed separately.</span>
+          </td>
+          <td>Included</td></tr>
+      </tbody>
+    </table>
+    <p class="retainer-note">* Retainer agreements are billed monthly. A minimum 3-month commitment is recommended for new projects.</p>
+
+    <!-- ══ 5. MARKET CONTEXT ══ -->
+    <div class="section-title">
+      <span class="icon">⑤</span> Malaysian Market Budget Reference
+    </div>
+    <p style="font-size:9.5pt;color:#666;margin-bottom:10px;">
+      The following tiers represent typical client budgets observed in the Malaysian market and can be used
+      as a reference when positioning proposals.
+    </p>
+    <div class="market-box">
+      <div class="market-card sme">
+        <div class="mc-label">SME / Startup</div>
+        <div class="mc-value">RM 3,000 – RM 10,000</div>
+      </div>
+      <div class="market-card corp">
+        <div class="mc-label">Corporate / Mid-Market</div>
+        <div class="mc-value">RM 10,000 – RM 30,000</div>
+      </div>
+      <div class="market-card ent">
+        <div class="mc-label">Enterprise / Custom Platform</div>
+        <div class="mc-value">RM 30,000 – RM 50,000+</div>
+      </div>
+    </div>
+
+    <!-- ══ 6. IMPORTANT NOTES ══ -->
+    <div class="section-title">
+      <span class="icon">⑥</span> Important Notes &amp; Best Practices
+    </div>
+    <div class="tips-grid">
+      <div class="tip-card">
+        <div class="tip-num">01</div>
+        <div class="tip-title">Scope Discovery First</div>
+        <div class="tip-body">Always conduct a requirements session before issuing a quote. Use a checklist of all functionalities and let clients confirm what they need.</div>
+      </div>
+      <div class="tip-card">
+        <div class="tip-num">02</div>
+        <div class="tip-title">Define "Done" Clearly</div>
+        <div class="tip-body">Document exactly what each feature includes. Avoid scope creep by attaching feature specifications to the signed agreement.</div>
+      </div>
+      <div class="tip-card">
+        <div class="tip-num">03</div>
+        <div class="tip-title">Set Revision Limits</div>
+        <div class="tip-body">2 rounds of design revisions are included in the base. One round = one consolidated feedback submission covering any number of comments on the current design. Additional rounds are charged at RM 200 per round.</div>
+      </div>
+      <div class="tip-card">
+        <div class="tip-num">04</div>
+        <div class="tip-title">Bundle for Clarity</div>
+        <div class="tip-body">Consider offering preset bundles (Starter, Business, Enterprise) built from the modules above for clients who are unsure where to start.</div>
+      </div>
+      <div class="tip-card">
+        <div class="tip-num">05</div>
+        <div class="tip-title">Third-Party Costs</div>
+        <div class="tip-body">Prices above cover integration work only. Third-party licensing fees (hosting, SMS, payment gateway, SaaS tools) are billed separately to the client.</div>
+      </div>
+      <div class="tip-card">
+        <div class="tip-num">06</div>
+        <div class="tip-title">Technology Flexibility</div>
+        <div class="tip-body">The stack used (WordPress, React, Laravel, etc.) may affect pricing. Specific technology choices will be discussed and agreed upon during scoping.</div>
+      </div>
+    </div>
+
+    <!-- Disclaimer -->
+    <p style="font-size:9pt;color:#aaa;margin-top:28px;line-height:1.7;border-top:1px solid #e8eaf2;padding-top:16px;">
+      <strong>Disclaimer:</strong> All prices listed are indicative estimates based on standard project requirements as of March 2026.
+      Final quotations will be provided after a formal scoping session. Prices are subject to change based on project complexity,
+      technology stack, timeline, and third-party costs. All amounts are in Malaysian Ringgit (MYR) and exclusive of any applicable taxes.
+    </p>
+
+  </div><!-- /content -->
+
+  <!-- ══ FOOTER ══ -->
+  <div class="doc-footer">
+    <strong>Website Design &amp; Development Pricing Proposal</strong> &nbsp;·&nbsp; Malaysia Market &nbsp;·&nbsp; March 2026<br>
+    This document is confidential and intended solely for the named recipient. All pricing is indicative and subject to formal scoping.
+  </div>
+
+</div><!-- /page -->
+
+</body>
+</html>
